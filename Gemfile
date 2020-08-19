@@ -29,3 +29,5 @@ group :test do
   # gem 'selenium-webdriver'
   # gem 'webdrivers'
 end
+
+gem "semantic-ui-sass", "~> 2.4"
