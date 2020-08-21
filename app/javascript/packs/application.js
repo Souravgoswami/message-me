@@ -4,10 +4,13 @@ require("@rails/activestorage").start()
 require("channels")
 
 import 'jquery'
+import 'bootstrap'
 window.$ = $
 
-import 'semantic-ui-sass'
-
 document.addEventListener('turbolinks:load', () => {
-	$('.ui.dropdown').dropdown()
+	$('[data-toggle="tooltip"]').tooltip({
+		trigger: 'hover'
+	}).click(function() { $(this).tooltip('hide') })
+	$('[data-toggle="popover"]').popover()
+
 })

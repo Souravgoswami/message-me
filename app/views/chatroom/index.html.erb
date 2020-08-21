@@ -1,80 +1,63 @@
-<div class="centrify">
+<div class="centrify mb-3">
 	<div class="icon80">
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#f3705a" d="M295 26v157c0 14-11 26-25 26H134L34 261v-52h-8c-14 0-26-12-26-26V26C0 12 12 0 26 0h245c14 0 24 12 24 26z" data-original="#F3705A"/><g fill="#fff"><circle cx="69.3" cy="104.5" r="27.7" class="circle-1" data-original="#FFFFFF"/><circle cx="148.3" cy="104.5" r="27.7" class="circle-2" data-original="#FFFFFF"/><circle cx="227.2" cy="104.5" r="27.7" class="circle-3" data-original="#FFFFFF"/></g><path fill="#ffd15c" d="M217 89v156c0 14 11 26 25 26h137l100 52v-52h7c14 0 26-12 26-26V89c0-14-12-26-26-26H241c-14 0-24 12-24 26z" class="chatbubble-2" data-original="#FFD15C"/><g fill="#fff"><circle cx="442.7" cy="167.5" r="27.7" class="circle-4" data-original="#FFFFFF"/><circle cx="363.7" cy="167.5" r="27.7" class="circle-5" data-original="#FFFFFF"/><circle cx="284.8" cy="167.5" r="27.7" class="circle-6" data-original="#FFFFFF"/></g><path fill="#66c6b9" d="M371 277v158c0 14-12 26-25 26h-85l-38 51-38-52h-84c-14 0-25-12-25-26V277c0-14 11-25 25-25h246c14 0 24 11 24 25z" class="active-path" data-original="#66C6B9"/><text fill="url(#c)" font-family="Pacifico" font-size="40" style="line-height:3.35;white-space:pre;shape-inside:url(#b);mix-blend-mode:normal" transform="translate(21 10)"><tspan x="0" y="0"><tspan>Hello there!</tspan></tspan></text><text x="107" y="370" font-family="Pacifico" font-size="40" style="line-height:1.25;-inkscape-font-specification:Pacifico"><tspan x="107" y="370" fill="#fff">Message Me!</tspan></text></svg>
 	</div>
 </div>
 
-<div class="ui two column grid">
-	<div class="twelve wide column">
-		<div class="ui fluid raised card chatbox">
-			<div class="content">
-				<div class="ui small feed">
-					<div class="event">
-						<div class="content">
-							<div class="summary">
-								<a>Elliot Fu</a> added <a>Jenny Hess</a> as a friend
-							</div>
-						</div>
+<div class="container-fluid">
+	<ul class="nav nav-tabs nav-hidden" id="myTab" role="tablist">
+		<li class="nav-item">
+			<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Messages</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Friends</a>
+		</li>
+	</ul>
+
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card shadow-sm rounded chatbox">
+				<div class="card-body">
+					<div class="body-container">
+						<%=  1.times do %>
+							<a>Elliot Fu</a> added <a>Jenny Hess</a> as a friend
+							<br>
+							<a>Stevie Feliciano</a> added <a>Elliot Fu</a> as a friend
+							<br>
+							<a>Helen Troy</a> added <a>Christian Rocha</a> as a friend
+							<br>
+							<a>Christian Rocha</a>: Test Message
+						<% end %>
 					</div>
-					<div class="event">
-						<div class="content">
-							<div class="summary">
-								<a>Stevie Feliciano</a> added <a>Elliot Fu</a> as a friend
+
+					<div class="extra-content card-footer field mb-2 text-muted">
+						<form class="form-group">
+							<div class="row">
+								<div class="col-md-10">
+									<input type="text" class="form-control" placeholder="Enter a message...">
+									<i class="bordered inverted orange edit icon"></i>
+								</div>
+
+								<div class="col-md-2">
+									<input type="button" value="hi">
+								</div>
 							</div>
-						</div>
-					</div>
-					<div class="event">
-						<div class="content">
-							<div class="summary">
-								<a>Helen Troy</a> added <a>Christian Rocha</a> as a friend
-							</div>
-						</div>
-					</div>
-					<div class="event">
-						<div class="content">
-							<div class="summary">
-								<a>Christian Rocha</a>: Test Message
-							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>
-
-			<div class="extra content">
-				<form class="ui reply form">
-					<div class="field">
-						<div class="ui fluid icon input">
-							<input type="text" placeholder="Enter a message...">
-							<i class="bordered inverted orange edit icon"></i>
-						</div>
-					</div>
-
-				</form>
-			</div>
 		</div>
-	</div>
 
-	<div class="four wide column">
-		<div class="ui fluid raised card chatbox">
-			<div class="content">
-				<div class="ui vertical inverted menu">
-					<a class="active teal item">
-						Inbox
-						<div class="ui teal left pointing label">1</div>
-					</a>
-					<a class="item">
-						Spam
-						<div class="ui label">51</div>
-					</a>
-					<a class="item">
-						Updates
-						<div class="ui label">1</div>
-					</a>
-					<div class="item">
-						<div class="ui transparent icon input">
-							<input type="text" placeholder="Search mail...">
-							<i class="search icon"></i>
-						</div>
+		<div class="col-md-4 col-sm-2 nav-hidden-inv">
+			<div class="card shadow-sm rounded chatbox">
+				<div class="card-body">
+					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+						  <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Messages</a>
+						  <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Friends</a>
 					</div>
 				</div>
 			</div>
