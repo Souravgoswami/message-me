@@ -31,3 +31,5 @@ group :test do
 end
 
 gem "semantic-ui-sass", "~> 2.4"
+
+gem "bcrypt", "~> 3.1"
