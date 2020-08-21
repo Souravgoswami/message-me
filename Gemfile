@@ -32,3 +32,5 @@ group :test do
 end
 
 gem "bcrypt", "~> 3.1"
+
+gem "hirb", "~> 0.7.3"
