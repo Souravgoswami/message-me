@@ -22,15 +22,7 @@
 			<div class="card shadow-sm rounded chatbox">
 				<div class="card-body">
 					<div class="body-container">
-						<%=  1.times do %>
-							<a>Elliot Fu</a> added <a>Jenny Hess</a> as a friend
-							<br>
-							<a>Stevie Feliciano</a> added <a>Elliot Fu</a> as a friend
-							<br>
-							<a>Helen Troy</a> added <a>Christian Rocha</a> as a friend
-							<br>
-							<a>Christian Rocha</a>: Test Message
-						<% end %>
+						<%= render partial: 'message', collection: @messages, as: :x %>
 					</div>
 
 					<div class="extra-content card-footer field mb-2 text-muted">
