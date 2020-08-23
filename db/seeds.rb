@@ -1,31 +1,32 @@
-class ForkProcess
-	require 'etc'
-	FORK_PIDS = []
-	PROCESSORS = Etc.nprocessors
+require 'etc'
 
-	def self.fork(&block)
-		if FORK_PIDS.count { |x| IO.read("/proc/#{x}/stat").split[2] != ?Z } < PROCESSORS * 4
-			FORK_PIDS << Process.fork { block === self }
-			break
-		else
-			sleep 0.001
-			redo
-		end while true
-	end
-end
-
-# Create unique usernames
+ITEMS = 200
 NAME = (?a..?y).to_a.permutation
-ITEMS = 500
+FORK_PIDS = []
+PROCESSORS = Etc.nprocessors * 2
 
 time = Time.now
 ITEMS.times do |i|
-	## Print count, elapsed time, just to monitor, nothing to do with ForkProcess...
-	elap = Time.now - time
-	est_rem = ITEMS.*(elap)./(i).-(elap).round(2)
-	print "\e[2K#{i} | Elapsed #{elap.round(2)}s | Rem #{est_rem}s \r"
+	if FORK_PIDS.length > PROCESSORS
+		Process.wait(FORK_PIDS.shift)
+		redo
+	else
+		elap = Time.now - time
+		est_rem = ITEMS.*(elap)./(i).-(elap).round(2)
+		print "\e[2K#{i}/#{ITEMS} | Elapsed #{elap.round(2)} s | Rem #{est_rem} s | Active #{FORK_PIDS.count}\r"
+		name = NAME.next.join.capitalize
 
-	## ForkProcess Code
-	name = NAME.next.join.capitalize
-	ForkProcess.fork { User.create!(username: name, password: 'randomuser') }
+		FORK_PIDS << Process.fork do
+			begin
+				User.create!(username: name, password: 'randomuser')
+			rescue ActiveRecord::RecordInvalid
+				puts $!.full_message
+			rescue Exception
+				sleep 0.1
+				retry
+			end
+		end
+	end
 end
+
+FORK_PIDS.each(&Process.method(:wait))
