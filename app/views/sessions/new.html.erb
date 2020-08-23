@@ -9,18 +9,18 @@
 			<div class="card-body">
 				<div class="row">
 					<div class="col-md-7">
-						<%= form_with scope: :session, url: login_path, local: true do |f| %>
-							<%= f.label :email, class: 'width-100' do %>
+						<%= form_with scope: :session, url: login_path, remote: true do |f| %>
+							<%= f.label :username, class: 'width-100' do %>
 								<div class="form-group row">
 									<div class="text-success col-md-3">Email</div>
-									<div class="col-md-9"><%= f.text_field :email, rows: 10, class: 'form-control shadow-sm rounded', placeholder: 'Email address' %></div>
+									<div class="col-md-9"><%= f.text_field :username, class: 'form-control shadow-sm rounded', placeholder: 'Email address' %></div>
 								</div>
 							<% end %>
 
 							<%= f.label :password, class: 'width-100' do %>
 								<div class="form-group row">
 									<div class="text-success col-md-3">Password</div>
-									<div class="col-md-9"><%= f.password_field :password, rows: 10, class: 'form-control shadow-sm rounded', placeholder: 'Enter a password' %></div>
+									<div class="col-md-9"><%= f.password_field :password, class: 'form-control shadow-sm rounded', placeholder: 'Enter a password' %></div>
 								</div>
 							<% end %>
 
