@@ -2,7 +2,7 @@ class ChatroomController < ApplicationController
 	before_action :require_user
 
 	def index
-		flash[:error] = 'You are not logged in!'
+		@message = Message.new
 		@messages = Message.all
 	end
 

@@ -26,18 +26,19 @@
 					</div>
 
 					<div class="extra-content card-footer field mb-2 text-muted">
-						<form class="form-group">
+						<%= form_for @message, html: { class: '', role: 'form' }, url: message_path do |f| %>
 							<div class="row">
 								<div class="col-md-10">
-									<input type="text" class="form-control" placeholder="Enter a message...">
-									<i class="bordered inverted orange edit icon"></i>
+									<%= f.text_field :body, class: 'form-control submit-box', placeholder: 'Enter a message here' %>
 								</div>
 
 								<div class="col-md-2">
-									<input type="button" value="hi">
+									<label class="send-button">
+										<%= f.submit '', class: 'btn-send submit-button', style: 'display: none' %>
+									</label>
 								</div>
 							</div>
-						</form>
+						<% end %>
 					</div>
 				</div>
 			</div>
