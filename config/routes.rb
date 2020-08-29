@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'messages/create'
+  mount ActionCable.server, at: '/cable'
+
   post 'message', to: 'messages#create'
 
   delete 'logout', to: 'sessions#destroy'

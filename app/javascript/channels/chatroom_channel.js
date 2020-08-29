@@ -2,14 +2,21 @@ import consumer from "./consumer"
 
 consumer.subscriptions.create("ChatroomChannel", {
 	connected() {
-		// Called when the subscription is ready for use on the server
 	},
 
 	disconnected() {
-		// Called when the subscription has been terminated by the server
 	},
 
 	received(data) {
-		// Called when there's incoming data on the websocket for this channel
+		let mc = $('#messages')
+
+		let mc0 = mc[0]
+		let userAtBottom = mc0.scrollTop + 16 > Math.floor(mc0.scrollHeight - mc.height())
+
+		mc.append(data.body)
+
+		// Scroll to bottom if the user is at bottom
+		if (userAtBottom)
+			mc.scrollTop(mc0.scrollHeight)
 	}
-});
+})
