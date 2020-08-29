@@ -2,6 +2,10 @@
 	<div class="icon80">
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#f3705a" d="M295 26v157c0 14-11 26-25 26H134L34 261v-52h-8c-14 0-26-12-26-26V26C0 12 12 0 26 0h245c14 0 24 12 24 26z" data-original="#F3705A"/><g fill="#fff"><circle cx="69.3" cy="104.5" r="27.7" class="circle-1" data-original="#FFFFFF"/><circle cx="148.3" cy="104.5" r="27.7" class="circle-2" data-original="#FFFFFF"/><circle cx="227.2" cy="104.5" r="27.7" class="circle-3" data-original="#FFFFFF"/></g><path fill="#ffd15c" d="M217 89v156c0 14 11 26 25 26h137l100 52v-52h7c14 0 26-12 26-26V89c0-14-12-26-26-26H241c-14 0-24 12-24 26z" class="chatbubble-2" data-original="#FFD15C"/><g fill="#fff"><circle cx="442.7" cy="167.5" r="27.7" class="circle-4" data-original="#FFFFFF"/><circle cx="363.7" cy="167.5" r="27.7" class="circle-5" data-original="#FFFFFF"/><circle cx="284.8" cy="167.5" r="27.7" class="circle-6" data-original="#FFFFFF"/></g><path fill="#66c6b9" d="M371 277v158c0 14-12 26-25 26h-85l-38 51-38-52h-84c-14 0-25-12-25-26V277c0-14 11-25 25-25h246c14 0 24 11 24 25z" class="active-path" data-original="#66C6B9"/><text fill="url(#c)" font-family="Pacifico" font-size="40" style="line-height:3.35;white-space:pre;shape-inside:url(#b);mix-blend-mode:normal" transform="translate(21 10)"><tspan x="0" y="0"><tspan>Hello there!</tspan></tspan></text><text x="107" y="370" font-family="Pacifico" font-size="40" style="line-height:1.25;-inkscape-font-specification:Pacifico"><tspan x="107" y="370" fill="#fff">Message Me!</tspan></text></svg>
 	</div>
+
+</div>
+<div class="centrify">
+	<h4>Say Something</h4>
 </div>
 
 <div class="container">
@@ -27,15 +31,12 @@
 						</div>
 					</div>
 
-					<div class="extra-content card-footer mb-2 text-muted">
+					<div class="extra-content card-footer text-muted">
 						<%= form_for @message, html: { class: '', role: 'form' }, url: message_path, remote: true do |f| %>
-							<div class="row">
-								<div class="col-md-10">
-									<%= f.text_field :body, class: 'form-control submit-box', placeholder: 'Enter a message here' %>
-								</div>
-
-								<div class="col-md-2">
-									<label class="btn-send btn-outline-pink-animated" data-content="Send">
+							<div class="input-group mb-3">
+								<%= f.text_field :body, class: "form-control", placeholder: "Type a Message", 'aria-label': "Type a Message", 'aria-describedby': "basic-addon2" %>
+								<div class="input-group-append">
+									<label class="btn btn-send btn-outline-pink-animated" data-content="Send">
 										<%= f.submit '', class: 'submit-button', style: 'display: none' %>
 									</label>
 								</div>

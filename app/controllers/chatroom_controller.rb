@@ -3,7 +3,7 @@ class ChatroomController < ApplicationController
 
 	def index
 		@message = Message.new
-		@messages = Message.all
+		@messages = Message.infinite_scroll_paginate
 	end
 
 	def help

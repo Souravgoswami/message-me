@@ -16,7 +16,6 @@ body {
 	color: #fff ;
 	background: image-url('menu-button.svg') center no-repeat ;
 	background-size: cover ;
-
 }
 
 .bg-custom-lite {
@@ -171,14 +170,14 @@ body {
 }
 
 .chatbox {
-	height: 70vh ;
-	margin-bottom: 30vh ;
+	height: 60vh ;
+	// margin-bottom: 30vh ;
 	overflow: auto ;
 }
 
 .body-container {
 	position: relative ;
-	height: 80% ;
+	height: 85% ;
 
 	.messages {
 		overflow: auto ;
@@ -200,6 +199,7 @@ body {
 .extra-content {
 	z-index: 1 ;
 	margin: 0 ;
+	height: 15% ;
 	display: block ;
 	width: 100% ;
 
@@ -363,16 +363,6 @@ body {
 	.submit-button {
 		display: block ;
 		display: none ;
-	}
-
-	.btn-send {
-		display: block ;
-		position: absolute ;
-
-		text-align: center ;
-		left: 50% ;
-		transform: translateX(-50%) ;
-		width: 25% ;
 	}
 
 	.nav-hidden-inv {
