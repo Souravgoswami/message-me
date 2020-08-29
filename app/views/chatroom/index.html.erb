@@ -32,7 +32,7 @@
 					</div>
 
 					<div class="extra-content card-footer text-muted">
-						<%= form_for @message, html: { class: '', role: 'form' }, url: message_path, remote: true do |f| %>
+						<%= form_for @message, html: { role: 'form' }, url: message_path, remote: true do |f| %>
 							<div class="input-group mb-3">
 								<%= f.text_field :body, class: "form-control", placeholder: "Type a Message", 'aria-label': "Type a Message", 'aria-describedby': "basic-addon2" %>
 								<div class="input-group-append">
