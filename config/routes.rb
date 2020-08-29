@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount ActionCable.server, at: '/cable'
+  # mount ActionCable.server, at: '/cable'
 
   post 'message', to: 'messages#create'
 
